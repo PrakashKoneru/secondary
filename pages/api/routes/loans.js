@@ -150,7 +150,7 @@ router.get("/completed", async (req, res) => {
 	}
 });
 
-router.get("/incoming", async (req, res) => {
+router.get("/current", async (req, res) => {
 	try {
 		const incomingLoans = await pool().query("SELECT * FROM loans WHERE approval_status = $1", ["incoming"]);
 		const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', "December"]

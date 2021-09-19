@@ -9,8 +9,8 @@ import Cookies from "js-cookie";
 
 const Loans = () => {
 	const navList = [
-		'Incoming Loans',
-		'Incoming Stats',
+		'Current Loans',
+		'Current Stats',
 		'Completed Loans',
 		'Completed Stats',
 	];

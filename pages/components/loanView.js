@@ -83,10 +83,10 @@ const LoanView = ({ loans, setLoansToRender, setLoanCounts, selectedNav }) => {
 											style = {{border: `1px solid ${theme.colors.gray}`}}
 										>
 											<option
-												value={'2021'}
+												value={selectedNav === 'completed' ? '2019' : '2021'}
 												border={`1px solid ${theme.colors.gray}`}
 											>
-												2021
+												{selectedNav === 'completed' ? '2019' : '2021'}
 											</option>
 										</Select>
 									</div>
