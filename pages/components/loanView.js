@@ -83,10 +83,10 @@ const LoanView = ({ loans, setLoansToRender, setLoanCounts, selectedNav }) => {
 											style = {{border: `1px solid ${theme.colors.gray}`}}
 										>
 											<option
-												value={selectedNav === 'completed' ? '2019' : '2021'}
+												value={selectedNav === 'completed' ? '2018' : '2020'}
 												border={`1px solid ${theme.colors.gray}`}
 											>
-												{selectedNav === 'completed' ? '2019' : '2021'}
+												{selectedNav === 'completed' ? '2018' : '2020'}
 											</option>
 										</Select>
 									</div>
@@ -166,6 +166,7 @@ const LoanView = ({ loans, setLoansToRender, setLoanCounts, selectedNav }) => {
 									loans={loans}
 									filterBy={filterBy}
 									setLoanCounts={setLoanCounts}
+									selectedNav={selectedNav}
 								/>
 							) : (
 								<Flex

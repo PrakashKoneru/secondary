@@ -82,7 +82,6 @@ const LoanCard = ({ loan, setLoansToRender, index, setLoanCounts }, ref) => {
 							border={`1px solid ${theme.colors.gray}`}
 							borderRadius="3px"
 							p="15px"
-							mt={index === 0 ? '0px' : `15px`}
 							flexDirection="column"
 						>
 							<Flex

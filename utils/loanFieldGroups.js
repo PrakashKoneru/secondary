@@ -8,7 +8,7 @@ const loanFieldGroups = {
 		'loan_id': {
 			title: 'Loan ID'
 		},
-		'loan_amnt': {
+		'loan_amnt_sec': {
 			title: 'Loan Amount'
 		},
 		'term': {
@@ -63,6 +63,32 @@ const loanFieldGroups = {
 			title: 'Next Payment Date'
 		},
 	},
+	'Loan Payment History': {
+        'num_pymnts_on_time': {
+            title: 'Number of payments on time'
+        },
+        'num_pymnts_late': {
+            title: 'Number of late payments'
+        },
+        'num_pymnts_missed': {
+            title: 'Number of missed payments'
+        },
+        'total_pymnt_on_time': {
+            title: 'Total amount paid on time'
+        },
+        'total_pymnt_late': {
+            title: 'Total amount paid late'
+        },
+        'total_pymnt_missed': {
+            title: 'Total amount missed'
+        },
+        'late_duration_days_total': {
+            title: 'Total number of days in late status'
+        },
+        'missed_duration_days_total': {
+			title: 'Total number of days in default status'
+        },
+    },
 	'About The Applicant': {
 		'emp_title': {
 			title: 'Employment Title'

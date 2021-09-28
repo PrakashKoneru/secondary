@@ -5,12 +5,10 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 export default function Home() {
-  console.log('rendered')
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [submissionError, setSubmissionError] = useState(false);
 
   const postPasswordResetData = ({email, oldPassword, newPassword}) => {
-    console.log('un rendered')
     const baseURL =  '/secondary/secondaryLenders/auth/resetPassword';
     setSubmissionError(false);
 		axios.post(baseURL, { email, oldPassword, newPassword })

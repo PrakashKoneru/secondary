@@ -88,25 +88,25 @@ const GraphView = ({ selectedNav, ...props }) => {
 	let approvedLoansMax = 0;
 	const barGraphDataHelper = approvedLoans && approvedLoans.map((each) => {
 		// calculates the sum of each loan category
-		if(Number(each.loan_amnt) > approvedLoansMax) approvedLoansMax = Number(each.loan_amnt);
-		if(Number(each.loan_amnt) < approvedLoansMin) approvedLoansMin = Number(each.loan_amnt);
-		if(each.loan_grade === 'A') { barGraphDataByGrade['A']['categorySum']+= Number(each.loan_amnt) }
-		if(each.loan_grade === 'B') { barGraphDataByGrade['B']['categorySum']+= Number(each.loan_amnt) }
-		if(each.loan_grade === 'C') { barGraphDataByGrade['C']['categorySum']+= Number(each.loan_amnt) }
-		if(each.loan_grade === 'D') { barGraphDataByGrade['D']['categorySum']+= Number(each.loan_amnt) }
+		if(Number(each.loan_amnt_sec) > approvedLoansMax) approvedLoansMax = Number(each.loan_amnt_sec);
+		if(Number(each.loan_amnt_sec) < approvedLoansMin) approvedLoansMin = Number(each.loan_amnt_sec);
+		if(each.loan_grade === 'A') { barGraphDataByGrade['A']['categorySum']+= Number(each.loan_amnt_sec) }
+		if(each.loan_grade === 'B') { barGraphDataByGrade['B']['categorySum']+= Number(each.loan_amnt_sec) }
+		if(each.loan_grade === 'C') { barGraphDataByGrade['C']['categorySum']+= Number(each.loan_amnt_sec) }
+		if(each.loan_grade === 'D') { barGraphDataByGrade['D']['categorySum']+= Number(each.loan_amnt_sec) }
 	});
 
 	const loansBySelectedGroup = (groupingState) => approvedLoans && approvedLoans.reduce((loan, value) => {
 		if (!loan[value[groupingState]]) {
 			loan[value[groupingState]] = {
 				loans: [],
-				loan_amnt: 0,
+				loan_amnt_sec: 0,
 			};
 		}
 	 
 		// Grouping
 		loan[value[groupingState]]['loans'] = [...loan[value[groupingState]]['loans'], value];
-		loan[value[groupingState]]['loan_amnt'] = loan[value[groupingState]]['loan_amnt'] + parseInt(value['loan_amnt'], "10")
+		loan[value[groupingState]]['loan_amnt_sec'] = loan[value[groupingState]]['loan_amnt_sec'] + parseInt(value['loan_amnt_sec'], "10")
 		return loan;
 	}, {});
 
@@ -117,11 +117,10 @@ const GraphView = ({ selectedNav, ...props }) => {
 	let loansByMonthGraphData = loansByMonth && Object.keys(loansByAllMonths).sort(function(a, b){
 		return months.indexOf(a) - months.indexOf(b);
 	}).map((each) => {
-		console.log(each)
 		if (loansByMonth[each]) {
 			return {
 				xAxis: each,
-				monthTotal: loansByMonth[each].loan_amnt
+				monthTotal: loansByMonth[each].loan_amnt_sec
 			}
 		} else {
 			return {
@@ -151,7 +150,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 			value: loansByLoanStatus[each].loans.length,
 		}
 	})
-	
+
 	return (
 		<ThemeContext.Consumer>
 			{(theme) => {
@@ -165,7 +164,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 							mt="30px"
 							fontWeight="700"
 						>
-							Approved Loans Overview:
+							Loans Overview
 						</Box>
 						<Flex
 							flexWrap="wrap"
@@ -174,6 +173,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 							justifyContent={{ md: "center", sm: "space-between" }}
 						>
 							{graphLineUpResult.blocks.map((each) => {
+								if(each.value === 'NaN%') return null;
 								return (
 									<Flex
 										mr={{ md: "10px", sm: "0px" }}
@@ -206,7 +206,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 								flexDirection="column"
 							>
 								<Flex fontWeight="700" mb="50px">
-									Invested Amount Across Grades
+									Total Amount Across Grades
 								</Flex>
 								<BarChart
 									width={400}
@@ -223,7 +223,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 									/>
 									<YAxis
 										type="number"
-										domain={[approvedLoansMin, approvedLoansMax]}
+										// domain={[( dataMin) => parseInt(dataMin), (dataMax) =>parseInt(dataMax)]}
 									/>
 									<Tooltip />
 									<Bar
@@ -247,7 +247,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 								flexDirection="column"
 							>
 								<Flex fontWeight="700" mb="48px">
-									Invested Amount Across Months
+									Total Amount Across Months
 								</Flex>
 								<BarChart
 									width={400}

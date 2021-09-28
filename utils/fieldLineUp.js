@@ -4,7 +4,7 @@ const curencyFormatter = new Intl.NumberFormat('en-US', {
 const fieldLineUp = [
 	{
 		title: 'Loan Amount',
-		def: 'loan_amnt',
+		def: 'loan_amnt_sec',
 		format: (value) => `$${curencyFormatter.format(value)}`
 	},
 	{
@@ -29,7 +29,7 @@ const fieldLineUp = [
 	},
 	{
 		title: 'Payment Prob.',
-		def: 'default_probability_percent_at_issue',
+		def: 'default_probability_percent_updated',
 		format: (value) => { return `${(100 - Number(value).toFixed(2)).toFixed(2)}%` }
 	},
 ];

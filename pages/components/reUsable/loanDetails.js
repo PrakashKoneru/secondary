@@ -103,7 +103,7 @@ const LoanDetails = ({ loan }) => {
 										) : (
 											<Box>
 												<Box px="20px">
-													<Box>{`${parseInt(loanDetails['default_probability_percent_at_issue'])}%`}</Box>
+													<Box>{`${Number(loanDetails['default_probability_percent_updated'])}%`}</Box>
 												</Box>
 											</Box>
 										)}
