@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const pool = require("../db.js");
-const jwtGenerator = require("../utils/jwtGenerator");
+const jwtGenerator = require("../beUtils/jwtGenerator");
 
 router.post("/resetPassword", async (req, res) => {
 	try {

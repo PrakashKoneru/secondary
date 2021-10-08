@@ -54,7 +54,9 @@ const graphLineUp = (loans = []) => {
 			}
 			total_princ_received_current+=Number(loan.total_rec_principal)
 			total_interest_received_current+=Number(loan.total_rec_interest)
-			current_expected_returns_num+=Number(loan.installment)*(Number(loan.term.slice(0,1)))*12
+			// current_expected_returns_num+=Number(loan.installment)*(Number(loan.term.slice(0,1)))*12
+			// Eventually change below to above.
+			current_expected_returns_num+=Number(loan.installment)* 3 * 12
 		}
 		total_princ_pending_current = total_princ_pending_lost_current - total_princ_lost_current
 
@@ -101,10 +103,10 @@ const graphLineUp = (loans = []) => {
 				title: 'Total Princ. Pending',
 				value: `$${curencyFormatter.format((total_princ_pending).toFixed(2))}`,
 			},
-			{
-				title: 'Initial Expected Returns',
-				value: `${(((initial_expected_returns_num/total_amount_invested) - 1) * 100).toFixed(2)}%`
-			},
+			// {
+			// 	title: 'Initial Expected Returns',
+			// 	value: `${(((initial_expected_returns_num/total_amount_invested) - 1) * 100).toFixed(2)}%`
+			// },
 			{
 				title: 'Current Expected Returns',
 				value: `${(((current_expected_returns_numerator/total_princ_pending_current) - 1) * 100).toFixed(2)}%`,

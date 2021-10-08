@@ -100,7 +100,7 @@ router.get("/completed", async (req, res) => {
 		const loansWithMonths = completedLoans.rows.map((loan) => {
 			loan.issue_month = months[loan.loan_break_d_month - 1];
 			// loan.loan_amnt = loan.loan_amnt - loan.total_rec_principal;
-			// loan.term = `${Number(loan.term.slice(0,1)) / 2}_years`;
+			loan.term = `${Number(loan.term.slice(0,1)) / 2}_years`;
 			return loan
 		})
 		return res.json({ loans: loansWithMonths });
@@ -120,7 +120,7 @@ router.get("/current", async (req, res) => {
 				if(loan.loan_break_d_month) {
 					loan.issue_month = months[loan.loan_break_d_month - 1];
 					// loan.loan_amnt = loan.loan_amnt - loan.total_rec_principal;
-					// loan.term = `${Number(loan.term.slice(0,1)) / 2}_years`;
+					loan.term = `${Number(loan.term.slice(0,1)) / 2}_years`;
 				}
 				return loan
 			})
@@ -142,7 +142,7 @@ router.get("/incoming", async (req, res) => {
 				if(loan.loan_break_d_month) {
 					loan.issue_month = months[loan.loan_break_d_month - 1];
 					// loan.loan_amnt = loan.loan_amnt - loan.total_rec_principal;
-					// loan.term = `${Number(loan.term.slice(0,1)) / 2}_years`;
+					loan.term = `${Number(loan.term.slice(0,1)) / 2}_years`;
 				}
 				return loan
 			})

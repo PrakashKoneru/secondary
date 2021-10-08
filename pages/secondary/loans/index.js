@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Input, Flex, Container, Select } from '@chakra-ui/react';
 import axios from 'axios';
-import SubNav from '../../components/reUsable/SubNav';
+import SubNav from '../../components/reUsable/subNav';
 import { ThemeContext } from '../../_app';
 import LoanView from '../../components/loanView';
 import GraphView from '../../components/graphView';

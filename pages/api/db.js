@@ -9,11 +9,4 @@ const pool = () => new Pool({
 	database: process.env.db
 });
 
-// pool.end(function(err) {
-// if (err) {
-// 	return console.log('error:' + err.message);
-// }
-// console.log('Close the database connection.');
-// });
-
 module.exports = pool;

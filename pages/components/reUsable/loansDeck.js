@@ -21,7 +21,10 @@ const LoansDeck = ({ loans, key, selectedNav, setLoanCounts }, ref) => {
 				loan[value[groupingState]] = {
 					loans: [],
 					loan_amnt_sec: 0,
-					int_rate_sum: 0
+					int_rate_sum: 0,
+					default_probability_percent_updated_sum: 0,
+					late_duration_days_total_sum: 0,
+					loan_status_count: 0
 				};
 			}
 		 
@@ -29,6 +32,12 @@ const LoansDeck = ({ loans, key, selectedNav, setLoanCounts }, ref) => {
 			loan[value[groupingState]]['loans'] = [...loan[value[groupingState]]['loans'], value];
 			loan[value[groupingState]]['loan_amnt_sec'] = loan[value[groupingState]]['loan_amnt_sec'] + parseInt(value['loan_amnt_sec'], "10")
 			loan[value[groupingState]]['int_rate_sum'] = loan[value[groupingState]]['int_rate_sum'] + Number(value['interest_rate_percent'])
+			loan[value[groupingState]]['default_probability_percent_updated_sum'] = loan[value[groupingState]]['default_probability_percent_updated_sum'] + Number(value['default_probability_percent_updated'])
+			loan[value[groupingState]]['late_duration_days_total_sum'] = loan[value[groupingState]]['late_duration_days_total_sum'] + Number(value['late_duration_days_total'])
+			if (value['loan_status'] === 'current') {
+				// console.log('how many loans')
+				loan[value[groupingState]]['loan_status_count'] = loan[value[groupingState]]['loan_status_count'] + 1;
+			}
 			return loan;
 		}, {});
 		setLoansToRender(loans)
@@ -99,26 +108,65 @@ const LoansDeck = ({ loans, key, selectedNav, setLoanCounts }, ref) => {
 													borderRadius="3px"
 													p="15px"
 													mt={index === 0 ? '0px' : `5px`}
-													alignItems={{ md: "center", sm: "flex-start"}}
-													flexDirection={{ md: 'row', sm: 'column'}}
+													alignItems="flex-end"
+													flexDirection="column"
 												>
-													<Flex w="100%">
-														<div>
+													<Flex
+														w="100%"
+														flexWrap="wrap"
+													>
+														<Box
+															w="18%"
+														>
 															<div style={{ fontWeight: '500' }}>
 																Total Loan Amount
 															</div>
 															<div style={{ marginTop: '10px' }}>
 																{fieldLineUp[0].format(Math.round(loansByGroup[month.slice(0,3)]['loan_amnt_sec']))}
 															</div>
-														</div>
+														</Box>
 														<Box
-															ml="20px"
+															ml="10px"
+															w="18%"
 														>
 															<div style={{ fontWeight: '500' }}>
 																Average Interest Rate
 															</div>
 															<div style={{ marginTop: '10px' }}>
 																{Math.round(loansByGroup[month.slice(0,3)]['int_rate_sum'] / loansByGroup[month.slice(0,3)]['loans'].length * 100) / 100}%
+															</div>
+														</Box>
+														<Box
+															ml="10px"
+															w="18%"
+														>
+															<div style={{ fontWeight: '500' }}>
+																Average Payment Probability
+															</div>
+															<div style={{ marginTop: '10px' }}>
+																{100 - Math.round(loansByGroup[month.slice(0,3)]['default_probability_percent_updated_sum'] / loansByGroup[month.slice(0,3)]['loans'].length * 100) / 100}%
+															</div>
+														</Box>
+														<Box
+															ml="10px"
+															w="18%"
+														>
+															<div style={{ fontWeight: '500' }}>
+																Average Late Status Days
+															</div>
+															<div style={{ marginTop: '10px' }}>
+																{Math.round(loansByGroup[month.slice(0,3)]['late_duration_days_total_sum'] / loansByGroup[month.slice(0,3)]['loans'].length) * 100 / 100}
+															</div>
+														</Box>
+														<Box
+															ml="10px"
+															w="18%"
+														>
+															<div style={{ fontWeight: '500' }}>
+																% of Current Loans
+															</div>
+															<div style={{ marginTop: '10px' }}>
+																{(Math.round(loansByGroup[month.slice(0,3)]['loan_status_count'] / loansByGroup[month.slice(0,3)]['loans'].length * 100) / 100) * 100}%
 															</div>
 														</Box>
 													</Flex>
@@ -133,7 +181,7 @@ const LoansDeck = ({ loans, key, selectedNav, setLoanCounts }, ref) => {
 													)}
 													{selectedNav === 'incoming' && (
 														<Box
-															mt={{ md: "0px", sm: "20px"}}
+															mt="20px"
 														>
 															<Button>
 																Commit to Buy
