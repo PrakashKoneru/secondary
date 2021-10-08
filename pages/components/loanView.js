@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Input, Flex, Container, Select, Button } from '@chakra-ui/react';
 import axios from 'axios';
-import SubNav from './reUsable/SubNav';
 import LoansDeck from './reUsable/loansDeck';
 import { ThemeContext } from '../_app';
 import fieldLineUp from '../../utils/fieldLineUp';
