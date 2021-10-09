@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const pool = require("./pages/api/db.js");
-const middlewareAuth = require("./pages/api/middleware/authorize.js")
+// const pool = require("./pages/api/db.js");
+// const middlewareAuth = require("./pages/api/middleware/authorize.js")
 const next = require("next");
 const { parse } = require('url')
 
@@ -16,12 +16,12 @@ app.prepare().then(() => {
 
     server.use(cors());
     server.use(express.json());
-    pool();
+    // pool();
 
     //routes
-    server.use("/", require("./pages/api/routes/simpleGet"));
-    server.use("/secondary/secondaryLenders/loans", middlewareAuth, require("./pages/api/routes/loans"));
-    server.use("/secondary/secondaryLenders/auth", require("./pages/api/routes/login"));
+    // server.use("/", require("./pages/api/routes/simpleGet"));
+    // server.use("/secondary/secondaryLenders/loans", middlewareAuth, require("./pages/api/routes/loans"));
+    // server.use("/secondary/secondaryLenders/auth", require("./pages/api/routes/login"));
   
     server.all('*', (req, res) => {
       return handle(req, res)
