@@ -13,19 +13,22 @@ const LoanDetails = ({ loan }) => {
 	const [loanDetails, setLoanDetails] = useState();
 	const [selectedGroup, setSelectedGroup] = useState(null);
 
-	useEffect(async () => {
-		if(id) {
-			const baseURL = '/secondary/secondaryLenders/loans/details';
-			const { data: { loan }} = await axios.post(baseURL,
-				{ loan_id: id },
-				{
-					headers: {
-						pToken: Cookies.get('pToken')
+	useEffect(() => {
+		async function fetchData() {
+			if(id) {
+				const baseURL = '/secondary/secondaryLenders/loans/details';
+				const { data: { loan }} = await axios.post(baseURL,
+					{ loan_id: id },
+					{
+						headers: {
+							pToken: Cookies.get('pToken')
+						}
 					}
-				}
-			)
-			setLoanDetails(loan)
+				)
+				setLoanDetails(loan)
+			}
 		}
+		fetchData();
 	}, [id])
 	
 	if(!loanDetails) return null;

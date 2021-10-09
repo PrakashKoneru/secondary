@@ -48,7 +48,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 		.then(({ data }) => {
 			setApprovedLoans(data.loans)
 		})
-	}, [])
+	}, [selectedNav])
 
 	const barGraphDataByGrade = {
 		'A': {
@@ -172,10 +172,11 @@ const GraphView = ({ selectedNav, ...props }) => {
 							mt="30px"
 							justifyContent={{ md: "center", sm: "space-between" }}
 						>
-							{graphLineUpResult.blocks.map((each) => {
+							{graphLineUpResult.blocks.map((each, index) => {
 								if(each.value === 'NaN%') return null;
 								return (
 									<Flex
+										key={index}
 										mr={{ md: "10px", sm: "0px" }}
 										mb="25px"
 										w={{ md: "19%", sm: "48%" }}

@@ -93,6 +93,7 @@ const LoanCard = ({ loan, setLoansToRender, index, setLoanCounts }, ref) => {
 								{fieldLineUp.slice(0, 6).map((field, index) => {
 									return (
 										<Box
+											key={index}
 											w={{sm: "46%", md: "auto" }}
 											py="10px"
 											ml={{md: index===0 ? "0px" : "10px", sm: "10px"}}
@@ -143,11 +144,11 @@ const LoanCard = ({ loan, setLoansToRender, index, setLoanCounts }, ref) => {
 									) : null}
 									{(loan.approval_status === "new") ? (
 										<Button
-											mt={{sm: "10px", md: "0px"}}
+											// mt={{sm: "10px", md: "0px"}}
 											ml="15px"
 											width="110px"
 											variant="loanCard"
-											onClick={() => updateData('pending')}
+											// onClick={() => updateData('pending')}
 											// disabled={loadingState}
 											style={{background: '#19858F', color: 'white'}}
 											onClick={() => updateLoan({
@@ -160,7 +161,7 @@ const LoanCard = ({ loan, setLoansToRender, index, setLoanCounts }, ref) => {
 										</Button>
 									) : null}
 									<Button
-										mt={{sm: "10px", md: "0px"}}
+										// mt={{sm: "10px", md: "0px"}}
 										ml="15px"
 										width="110px"
 										variant="loanCard"

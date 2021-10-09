@@ -43,7 +43,7 @@ export default function Simple() {
 		} else {
 			clearAllBodyScrollLocks();
 		}
-	}, [isOpen])
+	}, [isOpen, disableScroll, targetRef])
 	
   return (
     <>
@@ -119,6 +119,7 @@ export default function Simple() {
 									src="/HeaderLogo.png"
 									height="54px"
 									width="150px"
+									alt='HeaderLogo'
 								/>
 							{/* </Link> */}
 						</Flex>

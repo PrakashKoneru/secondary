@@ -45,7 +45,7 @@ const Loans = () => {
 		setLoanCounts(counts)
 	}
 
-	useEffect(async() => {
+	useEffect(() => {
 		getLoans(0)
 		getLoanCounts();
 	}, [])
