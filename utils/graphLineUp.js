@@ -108,11 +108,11 @@ const graphLineUp = (loans = []) => {
 			// 	value: `${(((initial_expected_returns_num/total_amount_invested) - 1) * 100).toFixed(2)}%`
 			// },
 			{
-				title: 'Current Expected Returns',
+				title: 'Expected Returns',
 				value: `${(((current_expected_returns_numerator/total_princ_pending_current) - 1) * 100).toFixed(2)}%`,
 			},
 			{
-				title: 'Received Return',
+				title: 'Received Returns',
 				value: `${(((total_received/total_princ_received) - 1)*100).toFixed(2)}%`,
 			}
 		],

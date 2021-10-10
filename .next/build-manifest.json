@@ -1,0 +1,114 @@
+{
+  "polyfillFiles": [
+    "static/chunks/polyfills-a54b4f32bdc1ef890ddd.js"
+  ],
+  "devFiles": [],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [
+    "static/K9DFerLRaNSPZzjynw8si/_buildManifest.js",
+    "static/K9DFerLRaNSPZzjynw8si/_ssgManifest.js"
+  ],
+  "pages": {
+    "/_app": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/css/80dd103c78fe38eb9b66.css",
+      "static/chunks/pages/_app-ed478265482c410d8d2f.js"
+    ],
+    "/_error": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/pages/_error-82a806cd39f8ab3dc3ac.js"
+    ],
+    "/components/graphView": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/5-59103323c26dcf91e109.js",
+      "static/chunks/742-9b2b2cc5706bed2f2d74.js",
+      "static/chunks/472-e3f621a75d2c18fdb4d8.js",
+      "static/chunks/pages/components/graphView-711c7a0c44aa1f658933.js"
+    ],
+    "/components/header": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/pages/components/header-495203af1b4d53796e46.js"
+    ],
+    "/components/loanView": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/886-98e797b8b01320e40325.js",
+      "static/chunks/241-9e03a16af68ebba2f0a3.js",
+      "static/chunks/pages/components/loanView-971b48031c8a088cba91.js"
+    ],
+    "/components/reUsable/loanCard": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/886-98e797b8b01320e40325.js",
+      "static/chunks/241-9e03a16af68ebba2f0a3.js",
+      "static/chunks/pages/components/reUsable/loanCard-f00470ba3fc6d90e9e1d.js"
+    ],
+    "/components/reUsable/loanDetails": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/pages/components/reUsable/loanDetails-11ffc64f63c27f3f3018.js"
+    ],
+    "/components/reUsable/loansDeck": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/886-98e797b8b01320e40325.js",
+      "static/chunks/241-9e03a16af68ebba2f0a3.js",
+      "static/chunks/pages/components/reUsable/loansDeck-73cc1670b3bfae270fff.js"
+    ],
+    "/components/reUsable/login": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/pages/components/reUsable/login-6767e83cf06eedc99389.js"
+    ],
+    "/components/reUsable/paisaPie": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/5-59103323c26dcf91e109.js",
+      "static/chunks/pages/components/reUsable/paisaPie-5e95e5209c98a7fcaa9e.js"
+    ],
+    "/components/reUsable/subNav": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/pages/components/reUsable/subNav-e260a4c74333292a56ea.js"
+    ],
+    "/secondary": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/pages/secondary-b32563c37e40e2a5f36f.js"
+    ],
+    "/secondary/loans": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/886-98e797b8b01320e40325.js",
+      "static/chunks/5-59103323c26dcf91e109.js",
+      "static/chunks/742-9b2b2cc5706bed2f2d74.js",
+      "static/chunks/241-9e03a16af68ebba2f0a3.js",
+      "static/chunks/472-e3f621a75d2c18fdb4d8.js",
+      "static/chunks/pages/secondary/loans-9847ffaff5630e5f68c5.js"
+    ],
+    "/secondary/resetPassword": [
+      "static/chunks/webpack-6d72c6ed51d58793f029.js",
+      "static/chunks/framework-2191d16384373197bc0a.js",
+      "static/chunks/main-0c4bed3653b4e1955829.js",
+      "static/chunks/pages/secondary/resetPassword-79f1c1dc95547e152862.js"
+    ]
+  },
+  "ampFirstPages": []
+}

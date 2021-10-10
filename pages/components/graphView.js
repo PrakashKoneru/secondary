@@ -173,6 +173,8 @@ const GraphView = ({ selectedNav, ...props }) => {
 							justifyContent={{ md: "center", sm: "space-between" }}
 						>
 							{graphLineUpResult.blocks.map((each, index) => {
+								if(selectedNav === 'Incoming Stats' && each.title === 'Received Return') return null;
+								if(selectedNav === 'Completed Stats' && each.title === 'Expected Returns') return null;
 								if(each.value === 'NaN%') return null;
 								return (
 									<Flex
