@@ -8,6 +8,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import LoanCard from './loanCard';
 
+const loansMultiplyFactor = 1000;
+
 const LoansDeck = ({ loans, key, selectedNav, setLoanCounts }, ref) => {
 	const [loansToRender, setLoansToRender] = useState(loans);
 	const [loansByGroup, setLoansByGroup] = useState();
@@ -122,7 +124,7 @@ const LoansDeck = ({ loans, key, selectedNav, setLoanCounts }, ref) => {
 																Total Loan Amount
 															</div>
 															<div style={{ marginTop: '10px' }}>
-																{fieldLineUp[0].format(Math.round(loansByGroup[month.slice(0,3)]['loan_amnt_sec']))}
+																{fieldLineUp[0].format(Math.round(loansByGroup[month.slice(0,3)]['loan_amnt_sec']) * loansMultiplyFactor)}
 															</div>
 														</Box>
 														<Box

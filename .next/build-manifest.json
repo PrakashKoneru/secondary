@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/K9DFerLRaNSPZzjynw8si/_buildManifest.js",
-    "static/K9DFerLRaNSPZzjynw8si/_ssgManifest.js"
+    "static/zYNs47rzqxJnntWGTfor3/_buildManifest.js",
+    "static/zYNs47rzqxJnntWGTfor3/_ssgManifest.js"
   ],
   "pages": {
     "/_app": [
@@ -28,7 +28,7 @@
       "static/chunks/main-0c4bed3653b4e1955829.js",
       "static/chunks/5-59103323c26dcf91e109.js",
       "static/chunks/742-9b2b2cc5706bed2f2d74.js",
-      "static/chunks/472-e3f621a75d2c18fdb4d8.js",
+      "static/chunks/472-9f2c3e42ad6ea578c84a.js",
       "static/chunks/pages/components/graphView-711c7a0c44aa1f658933.js"
     ],
     "/components/header": [
@@ -43,7 +43,7 @@
       "static/chunks/main-0c4bed3653b4e1955829.js",
       "static/chunks/886-98e797b8b01320e40325.js",
       "static/chunks/241-9e03a16af68ebba2f0a3.js",
-      "static/chunks/pages/components/loanView-971b48031c8a088cba91.js"
+      "static/chunks/pages/components/loanView-26ba3f396e5441638b5c.js"
     ],
     "/components/reUsable/loanCard": [
       "static/chunks/webpack-6d72c6ed51d58793f029.js",
@@ -65,7 +65,7 @@
       "static/chunks/main-0c4bed3653b4e1955829.js",
       "static/chunks/886-98e797b8b01320e40325.js",
       "static/chunks/241-9e03a16af68ebba2f0a3.js",
-      "static/chunks/pages/components/reUsable/loansDeck-73cc1670b3bfae270fff.js"
+      "static/chunks/pages/components/reUsable/loansDeck-d0844d0f6a959a2a5bb2.js"
     ],
     "/components/reUsable/login": [
       "static/chunks/webpack-6d72c6ed51d58793f029.js",
@@ -100,8 +100,8 @@
       "static/chunks/5-59103323c26dcf91e109.js",
       "static/chunks/742-9b2b2cc5706bed2f2d74.js",
       "static/chunks/241-9e03a16af68ebba2f0a3.js",
-      "static/chunks/472-e3f621a75d2c18fdb4d8.js",
-      "static/chunks/pages/secondary/loans-9847ffaff5630e5f68c5.js"
+      "static/chunks/472-9f2c3e42ad6ea578c84a.js",
+      "static/chunks/pages/secondary/loans-323ca8aec2a4da9c426b.js"
     ],
     "/secondary/resetPassword": [
       "static/chunks/webpack-6d72c6ed51d58793f029.js",

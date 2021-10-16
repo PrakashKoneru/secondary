@@ -34,6 +34,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const loansMultiplyFactor = 1000;
 
 const LoansDeck = ({
   loans,
@@ -174,7 +175,7 @@ const LoansDeck = ({
                       style: {
                         marginTop: '10px'
                       },
-                      children: _utils_fieldLineUp__WEBPACK_IMPORTED_MODULE_4__/* .default[0].format */ .Z[0].format(Math.round(loansByGroup[month.slice(0, 3)]['loan_amnt_sec']))
+                      children: _utils_fieldLineUp__WEBPACK_IMPORTED_MODULE_4__/* .default[0].format */ .Z[0].format(Math.round(loansByGroup[month.slice(0, 3)]['loan_amnt_sec']) * loansMultiplyFactor)
                     })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_2__.Box, {
                     ml: "10px",

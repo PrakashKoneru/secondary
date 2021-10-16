@@ -84,16 +84,18 @@ const GraphView = ({ selectedNav, ...props }) => {
 		'Dec': 'Dec'
 	};
 	
+	const loansMultiplyFactor = 1000;
 	let approvedLoansMin = 1000000000000000000;
 	let approvedLoansMax = 0;
+
 	const barGraphDataHelper = approvedLoans && approvedLoans.map((each) => {
 		// calculates the sum of each loan category
 		if(Number(each.loan_amnt_sec) > approvedLoansMax) approvedLoansMax = Number(each.loan_amnt_sec);
 		if(Number(each.loan_amnt_sec) < approvedLoansMin) approvedLoansMin = Number(each.loan_amnt_sec);
-		if(each.loan_grade === 'A') { barGraphDataByGrade['A']['categorySum']+= Number(each.loan_amnt_sec) }
-		if(each.loan_grade === 'B') { barGraphDataByGrade['B']['categorySum']+= Number(each.loan_amnt_sec) }
-		if(each.loan_grade === 'C') { barGraphDataByGrade['C']['categorySum']+= Number(each.loan_amnt_sec) }
-		if(each.loan_grade === 'D') { barGraphDataByGrade['D']['categorySum']+= Number(each.loan_amnt_sec) }
+		if(each.loan_grade === 'A') { barGraphDataByGrade['A']['categorySum']+= Number(each.loan_amnt_sec) * loansMultiplyFactor}
+		if(each.loan_grade === 'B') { barGraphDataByGrade['B']['categorySum']+= Number(each.loan_amnt_sec) * loansMultiplyFactor}
+		if(each.loan_grade === 'C') { barGraphDataByGrade['C']['categorySum']+= Number(each.loan_amnt_sec) * loansMultiplyFactor}
+		if(each.loan_grade === 'D') { barGraphDataByGrade['D']['categorySum']+= Number(each.loan_amnt_sec) * loansMultiplyFactor}
 	});
 
 	const loansBySelectedGroup = (groupingState) => approvedLoans && approvedLoans.reduce((loan, value) => {
@@ -106,7 +108,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 	 
 		// Grouping
 		loan[value[groupingState]]['loans'] = [...loan[value[groupingState]]['loans'], value];
-		loan[value[groupingState]]['loan_amnt_sec'] = loan[value[groupingState]]['loan_amnt_sec'] + parseInt(value['loan_amnt_sec'], "10")
+		loan[value[groupingState]]['loan_amnt_sec'] = loan[value[groupingState]]['loan_amnt_sec'] + parseInt(value['loan_amnt_sec'], "10") * loansMultiplyFactor
 		return loan;
 	}, {});
 
@@ -215,7 +217,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 									width={400}
 									height={300}
 									data={Object.values(barGraphDataByGrade)}
-									margin={{ left: 35, right: 50 }}
+									margin={{ left: 50, right: 50 }}
 								>
 									<CartesianGrid vertical={false} stroke="#ebf3f0" />
 									<XAxis
@@ -256,7 +258,7 @@ const GraphView = ({ selectedNav, ...props }) => {
 									width={400}
 									height={300}
 									data={loansByMonthGraphData}
-									margin={{ left: 25, right: 50 }}
+									margin={{ left: 50, right: 45 }}
 								>
 									<CartesianGrid vertical={false} stroke="#ebf3f0" />
 									<XAxis

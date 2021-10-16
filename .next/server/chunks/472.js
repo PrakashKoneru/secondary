@@ -27,6 +27,7 @@ var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_)
 var external_js_cookie_ = __webpack_require__(6155);
 var external_js_cookie_default = /*#__PURE__*/__webpack_require__.n(external_js_cookie_);
 ;// CONCATENATED MODULE: ./utils/graphLineUp.js
+const loansMultiplyFactor = 1000;
 const curencyFormatter = new Intl.NumberFormat('en-US', {
   currency: 'USD'
 });
@@ -102,22 +103,22 @@ const graphLineUp = (loans = []) => {
   return {
     blocks: [{
       title: 'Total Amount Invested',
-      value: `$${curencyFormatter.format(total_amount_invested.toFixed(2))}`
+      value: `$${curencyFormatter.format(total_amount_invested.toFixed(2) * loansMultiplyFactor)}`
     }, {
       title: 'Total Received',
-      value: `$${curencyFormatter.format(total_received.toFixed(2))}`
+      value: `$${curencyFormatter.format(total_received.toFixed(2) * loansMultiplyFactor)}`
     }, {
       title: '% of Late Payments',
       value: `${(percent_of_late_payments_filter / total_received * 100).toFixed(2)}%`
     }, {
       title: 'Total Princ. Lost',
-      value: `$${curencyFormatter.format(total_princ_lost.toFixed(2))}`
+      value: `$${curencyFormatter.format(total_princ_lost.toFixed(2) * loansMultiplyFactor)}`
     }, {
       title: 'Total Princ. Received',
-      value: `$${curencyFormatter.format(total_princ_received.toFixed(2))}`
+      value: `$${curencyFormatter.format(total_princ_received.toFixed(2) * loansMultiplyFactor)}`
     }, {
       title: 'Total Princ. Pending',
-      value: `$${curencyFormatter.format(total_princ_pending.toFixed(2))}`
+      value: `$${curencyFormatter.format(total_princ_pending.toFixed(2) * loansMultiplyFactor)}`
     }, // {
     // 	title: 'Initial Expected Returns',
     // 	value: `${(((initial_expected_returns_num/total_amount_invested) - 1) * 100).toFixed(2)}%`
@@ -247,6 +248,7 @@ const GraphView = (_ref) => {
     'Nov': 'Nov',
     'Dec': 'Dec'
   };
+  const loansMultiplyFactor = 1000;
   let approvedLoansMin = 1000000000000000000;
   let approvedLoansMax = 0;
   const barGraphDataHelper = approvedLoans && approvedLoans.map(each => {
@@ -255,19 +257,19 @@ const GraphView = (_ref) => {
     if (Number(each.loan_amnt_sec) < approvedLoansMin) approvedLoansMin = Number(each.loan_amnt_sec);
 
     if (each.loan_grade === 'A') {
-      barGraphDataByGrade['A']['categorySum'] += Number(each.loan_amnt_sec);
+      barGraphDataByGrade['A']['categorySum'] += Number(each.loan_amnt_sec) * loansMultiplyFactor;
     }
 
     if (each.loan_grade === 'B') {
-      barGraphDataByGrade['B']['categorySum'] += Number(each.loan_amnt_sec);
+      barGraphDataByGrade['B']['categorySum'] += Number(each.loan_amnt_sec) * loansMultiplyFactor;
     }
 
     if (each.loan_grade === 'C') {
-      barGraphDataByGrade['C']['categorySum'] += Number(each.loan_amnt_sec);
+      barGraphDataByGrade['C']['categorySum'] += Number(each.loan_amnt_sec) * loansMultiplyFactor;
     }
 
     if (each.loan_grade === 'D') {
-      barGraphDataByGrade['D']['categorySum'] += Number(each.loan_amnt_sec);
+      barGraphDataByGrade['D']['categorySum'] += Number(each.loan_amnt_sec) * loansMultiplyFactor;
     }
   });
 
@@ -281,7 +283,7 @@ const GraphView = (_ref) => {
 
 
     loan[value[groupingState]]['loans'] = [...loan[value[groupingState]]['loans'], value];
-    loan[value[groupingState]]['loan_amnt_sec'] = loan[value[groupingState]]['loan_amnt_sec'] + parseInt(value['loan_amnt_sec'], "10");
+    loan[value[groupingState]]['loan_amnt_sec'] = loan[value[groupingState]]['loan_amnt_sec'] + parseInt(value['loan_amnt_sec'], "10") * loansMultiplyFactor;
     return loan;
   }, {}); // let loansByGrade = loansBySelectedGroup('loan_grade')
 
@@ -404,7 +406,7 @@ const GraphView = (_ref) => {
               height: 300,
               data: Object.values(barGraphDataByGrade),
               margin: {
-                left: 35,
+                left: 50,
                 right: 50
               },
               children: [/*#__PURE__*/jsx_runtime_.jsx(external_recharts_.CartesianGrid, {
@@ -450,8 +452,8 @@ const GraphView = (_ref) => {
               height: 300,
               data: loansByMonthGraphData,
               margin: {
-                left: 25,
-                right: 50
+                left: 50,
+                right: 45
               },
               children: [/*#__PURE__*/jsx_runtime_.jsx(external_recharts_.CartesianGrid, {
                 vertical: false,
